@@ -33,7 +33,7 @@ PATH=/usr/bin:/bin:/usr/local/bin:/usr/sbin:/sbin:${HOME}/.local/bin
 # of the host system, so a fallback mechanism cannot be used for it.
 UNAME="uname"
 
-ARCH_LIST=('x86_64' 'x86' 'arm')
+ARCH_LIST=('x86_64' 'x86' 'arm' 'aarch64')
 HOST_ARCH=$($UNAME -m)
 # To check all available architectures look here:
 # https://wiki.archlinux.org/index.php/PKGBUILD#arch
@@ -45,10 +45,14 @@ elif [[ $HOST_ARCH == "x86_64" ]]
 then
     ARCH="x86_64"
     LD_LIB="${JUNEST_HOME}/lib64/ld-linux-x86-64.so.2"
-elif [[ $HOST_ARCH =~ .*(arm).* ]] || [[ $HOST_ARCH == "aarch64" ]]
+elif [[ $HOST_ARCH =~ .*(arm).* ]]
 then
     ARCH="arm"
     LD_LIB="${JUNEST_HOME}/lib/ld-linux-armhf.so.3"
+elif [[ $HOST_ARCH == "aarch64" ]]
+then
+    ARCH="aarch64"
+    LD_LIB="${JUNEST_HOME}/lib/ld-linux-aarch64.so.1"
 else
     die "Unknown architecture ${HOST_ARCH}"
 fi

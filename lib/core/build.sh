@@ -53,7 +53,7 @@ function build_image_env(){
     # bwrap command belongs to bubblewrap
     sudo pacstrap -G -M -d "${maindir}"/root pacman coreutils bubblewrap
 
-    if [[ ${ARCH} != "arm" ]]
+    if [[ ${ARCH} != "arm" ]] || [[ ${ARCH} != "aarch64" ]]
     then
         # x86_64 does not have any mirror set by default...
         sudo bash -c "echo 'Server = $DEFAULT_MIRROR' >> ${maindir}/root/etc/pacman.d/mirrorlist"

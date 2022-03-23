@@ -57,7 +57,7 @@ $SUDO pacman $PACMAN_OPTIONS -Syy
 $SUDO pacman $PACMAN_OPTIONS -S gawk
 $SUDO pacman-key --init
 
-if [[ $(uname -m) == *"arm"* ]]
+if [[ $(uname -m) == *"arm"* ]] || [[ $(uname -m) == "aarch64" ]]
 then
     # shellcheck disable=SC2086
     $SUDO pacman $PACMAN_OPTIONS -S archlinuxarm-keyring

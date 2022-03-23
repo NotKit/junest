@@ -36,7 +36,7 @@ usage() {
     echo -e "Actions and options:"
     echo -e "  s[etup]                                  Setup $NAME in ${JUNEST_HOME} either from repo or from file"
     echo -e "            -i, --from-file <image>        Setup the $NAME image in ${JUNEST_HOME}"
-    echo -e "            -a, --arch <arch>              $NAME architecture to download (x86_64, arm)"
+    echo -e "            -a, --arch <arch>              $NAME architecture to download (x86_64, arm, aarch64)"
     echo -e "                                           Defaults to the host architecture ($ARCH)"
     echo -e "            -d, --delete                   Delete $NAME from ${JUNEST_HOME}"
     echo
