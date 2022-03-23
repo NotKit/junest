@@ -16,6 +16,11 @@ CONFIG_PROC_FILE="/proc/config.gz"
 CONFIG_BOOT_FILE="/boot/config-$($UNAME -r)"
 PROC_USERNS_CLONE_FILE="/proc/sys/kernel/unprivileged_userns_clone"
 
+if [[ -n "$XDG_RUNTIME_DIR" ]]
+then
+    COMMON_BWRAP_OPTION+=" --bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR
+fi
+
 function _is_user_namespace_enabled() {
     local config_file=""
     if [[ -e $CONFIG_PROC_FILE ]]
