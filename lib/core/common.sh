@@ -58,7 +58,7 @@ else
 fi
 
 MAIN_REPO=https://dwa8bhj1f036z.cloudfront.net
-ENV_REPO=${MAIN_REPO}/${CMD}
+ENV_REPO=${ENV_REPO:-${MAIN_REPO}/${CMD}}
 # shellcheck disable=SC2016
 DEFAULT_MIRROR='https://mirror.rackspace.com/archlinux/$repo/os/$arch'
 
