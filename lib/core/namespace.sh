@@ -21,6 +21,21 @@ then
     COMMON_BWRAP_OPTION+=" --bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR
 fi
 
+if [[ -d "/system" ]]
+then
+    COMMON_BWRAP_OPTION+=" --bind /system /system"
+fi
+
+if [[ -d "/vendor" ]]
+then
+    COMMON_BWRAP_OPTION+=" --bind /vendor /vendor"
+fi
+
+if [[ -d "/apex" ]]
+then
+    COMMON_BWRAP_OPTION+=" --bind /apex /apex"
+fi
+
 function _is_user_namespace_enabled() {
     local config_file=""
     if [[ -e $CONFIG_PROC_FILE ]]
